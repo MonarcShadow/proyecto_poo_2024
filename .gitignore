@@ -36,7 +36,5 @@ build/
 
 ### Mac OS ###
 .DS_Store
-
-/out/
 /items.db
 /D&D Shop Catalog, V-1.8.pdf
