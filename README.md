@@ -4,9 +4,5 @@ para compilar el proyecto tiene que tener instalado el jdk de java 20 para evita
 
 ## Ejecución
 
-Para facilitar el uso se tiene el proyecto compilado en la carpeta 
-
-```bash
-out/artifacts/tienda_jar/tienda.jar
-```
-para ejecutar el proyecto solo se tiene que ejecutar el archivo jar, todas las dependencias estan dentro del propio .jar
+Para facilitar el uso se tiene el proyecto compilado como realeses
+para ejecutar el proyecto solo se tiene que ejecutar el archivo .jar, todas las dependencias estan dentro del propio .jar
