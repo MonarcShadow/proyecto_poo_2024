@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="900.0" style="-fx-background-color: #20120f;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="proyecto.tienda.LoginController">
+   <children>
+      <BorderPane layoutX="85.0" layoutY="53.0" prefHeight="474.0" prefWidth="866.0" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="14.0">
+         <center>
+            <ImageView fitHeight="415.0" fitWidth="722.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="TOP_CENTER">
+               <image>
+                  <Image url="@imagenes/Leonardo_Diffusion_dragon_rojo_occidental_combatiendo_combate_0.jpg" />
+               </image>
+            </ImageView>
+         </center>
+         <right>
+            <BorderPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+               <top>
+                  <AnchorPane prefHeight="415.0" prefWidth="200.0" style="-fx-background-color: #9c2827;" BorderPane.alignment="TOP_CENTER">
+                     <children>
+                        <TextField fx:id="input_user" alignment="CENTER" layoutX="14.0" layoutY="154.0" prefHeight="38.0" prefWidth="172.0" promptText="Username" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0">
+                           <font>
+                              <Font name="Tempus Sans ITC" size="17.0" />
+                           </font>
+                        </TextField>
+                        <Button fx:id="start_sesion" layoutX="20.0" layoutY="184.0" mnemonicParsing="false" onAction="#iniciar_nueva_sesion" prefHeight="50.0" prefWidth="172.0" style="-fx-background-color: #e45652;" text="Inicio Sesion" AnchorPane.bottomAnchor="78.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0">
+                           <font>
+                              <Font name="Tempus Sans ITC" size="25.0" />
+                           </font></Button>
+                        <Button fx:id="continue_sesion" contentDisplay="CENTER" layoutX="20.0" layoutY="244.0" mnemonicParsing="false" onAction="#continuar_una_sesion_anterior" prefHeight="50.0" prefWidth="161.0" style="-fx-background-color: #e45652;" text="Continuar Sesion" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0">
+                           <font>
+                              <Font name="Tempus Sans ITC" size="20.0" />
+                           </font></Button>
+                        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="10.0" layoutY="14.0" prefHeight="41.0" prefWidth="182.0" text="Dungeon" textAlignment="CENTER" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="14.0">
+                           <font>
+                              <Font name="Tempus Sans ITC" size="40.0" />
+                           </font>
+                        </Label>
+                        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="14.0" layoutY="60.0" prefHeight="41.0" prefWidth="182.0" text="Dragon" textAlignment="CENTER" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="60.0">
+                           <font>
+                              <Font name="Tempus Sans ITC" size="55.0" />
+                           </font>
+                        </Label>
+                        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="73.0" layoutY="46.0" prefHeight="58.0" prefWidth="37.0" text="&amp;" textAlignment="CENTER">
+                           <font>
+                              <Font name="Tempus Sans ITC" size="40.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="ver_usuarios" accessibleRole="HYPERLINK" alignment="CENTER" contentDisplay="CENTER" layoutX="14.0" layoutY="199.0" onMouseClicked="#Ver_usuarios_de_db" prefHeight="17.0" prefWidth="109.0" text="Ver usuarios registrados" textFill="WHITE" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0">
+                           <font>
+                              <Font name="Tempus Sans ITC" size="12.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="input_name_partida" alignment="CENTER" layoutX="14.0" layoutY="217.0" prefHeight="32.0" prefWidth="172.0" promptText="Nombre Partida">
+                           <font>
+                              <Font name="Tempus Sans ITC" size="17.0" />
+                           </font>
+                        </TextField>
+                        <Label fx:id="ver_partidas" accessibleRole="HYPERLINK" alignment="CENTER" contentDisplay="CENTER" layoutX="34.0" layoutY="254.0" onMouseClicked="#ver_partidas_del_usuario" prefHeight="18.0" prefWidth="131.0" text="Ver partidas del usuario" textFill="WHITE">
+                           <font>
+                              <Font name="Tempus Sans ITC" size="12.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </AnchorPane>
+               </top>
+               <bottom>
+                  <AnchorPane prefHeight="54.0" prefWidth="154.0" style="-fx-background-color: #9c2827;" BorderPane.alignment="CENTER">
+                     <children>
+                        <Button fx:id="choose_file" layoutX="162.0" layoutY="11.0" mnemonicParsing="false" onAction="#change_filechooser" style="-fx-background-color: #e45652;" text="..." AnchorPane.bottomAnchor="14.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="14.0" />
+                        <Label fx:id="path_choosefile_user" layoutX="14.0" layoutY="18.0" prefHeight="18.0" prefWidth="142.0" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="14.0" />
+                     </children>
+                  </AnchorPane>
+               </bottom>
+            </BorderPane>
+         </right>
+      </BorderPane>
+      <AnchorPane layoutX="20.0" layoutY="432.0" prefHeight="54.0" prefWidth="659.0" style="-fx-background-color: #9c2827;" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="221.0" AnchorPane.topAnchor="432.0">
+         <children>
+            <Label layoutX="14.0" layoutY="12.0" prefHeight="30.0" prefWidth="270.0" text="¿Nuevo Usuario? Registrese aqui: ">
+               <font>
+                  <Font name="Tempus Sans ITC" size="19.0" />
+               </font>
+            </Label>
+            <TextField fx:id="input_new_user" alignment="CENTER" layoutX="284.0" layoutY="11.0" prefHeight="31.0" prefWidth="270.0" promptText="Username">
+               <font>
+                  <Font name="Tempus Sans ITC" size="15.0" />
+               </font>
+            </TextField>
+            <Button fx:id="nuevo_usuario_se_une" layoutX="562.0" layoutY="11.0" mnemonicParsing="false" onAction="#agregar_usuario_a_db" prefHeight="31.0" prefWidth="82.0" style="-fx-background-color: #e45652;" text="Unirse">
+               <font>
+                  <Font name="Tempus Sans ITC" size="13.0" />
+               </font>
+            </Button>
+         </children>
+      </AnchorPane>
+      <Label fx:id="buttonexit" layoutX="6.0" layoutY="-2.0" onMouseClicked="#close_window" prefHeight="22.0" prefWidth="14.0" text="X" textFill="#e45652" AnchorPane.leftAnchor="6.0" AnchorPane.topAnchor="-2.0">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
