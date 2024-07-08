@@ -15,6 +15,9 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 import java.awt.*;
 import java.io.File;
 
+/**
+ * Controlador para la pantalla de inicio de la aplicación.
+ */
 public class InicioController extends Component {
     @FXML
     private Button button_no_inicio;
@@ -22,6 +25,15 @@ public class InicioController extends Component {
     @FXML
     private Button button_si_inicio;
 
+    /**
+     * Maneja el evento cuando se elige no crear un nuevo archivo de datos de partida.
+     *
+     * @param event evento de acción
+     * @throws UnsupportedLookAndFeelException si no se puede establecer el look and feel
+     * @throws ClassNotFoundException si no se encuentra la clase del look and feel
+     * @throws InstantiationException si no se puede instanciar el look and feel
+     * @throws IllegalAccessException si no se puede acceder al look and feel
+     */
     @FXML
     private void button_no_createfile(ActionEvent event) throws UnsupportedLookAndFeelException, ClassNotFoundException, InstantiationException, IllegalAccessException {
         UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
@@ -36,8 +48,17 @@ public class InicioController extends Component {
             Conexion.crear_guardado_usuarios_db(Shop.Path_save_usurious);
             next_window();
         }
-
     }
+
+    /**
+     * Maneja el evento cuando se elige sí para elegir un archivo de datos de partida existente.
+     *
+     * @param event evento de acción
+     * @throws UnsupportedLookAndFeelException si no se puede establecer el look and feel
+     * @throws ClassNotFoundException si no se encuentra la clase del look and feel
+     * @throws InstantiationException si no se puede instanciar el look and feel
+     * @throws IllegalAccessException si no se puede acceder al look and feel
+     */
     @FXML
     private void button_si_choosefile(ActionEvent event) throws UnsupportedLookAndFeelException, ClassNotFoundException, InstantiationException, IllegalAccessException {
         UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
@@ -52,6 +73,10 @@ public class InicioController extends Component {
             next_window();
         }
     }
+
+    /**
+     * Cambia a la siguiente ventana de la aplicación después de la selección de archivo.
+     */
     private void next_window(){
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("login-view.fxml"));
@@ -68,7 +93,7 @@ public class InicioController extends Component {
             stage.show();
             Stage myStage = (Stage) this.button_no_inicio.getScene().getWindow();
             myStage.close();
-        }catch (Exception ex){
+        } catch (Exception ex){
             System.out.println(ex);
         }
     }

@@ -18,6 +18,9 @@ import java.awt.*;
 import java.io.File;
 import java.sql.Connection;
 
+/**
+ * Controlador para la interfaz de inicio de sesión de la tienda.
+ */
 public class LoginController extends Component {
 
     @FXML
@@ -53,6 +56,11 @@ public class LoginController extends Component {
     @FXML
     private Label ver_partidas;
 
+    /**
+     * Agrega un nuevo usuario a la base de datos.
+     *
+     * @param event evento de acción que desencadena el método
+     */
     @FXML
     void agregar_usuario_a_db(ActionEvent event) {
         Connection cn_usuario = null;
@@ -67,6 +75,15 @@ public class LoginController extends Component {
         }
     }
 
+    /**
+     * Abre un selector de archivo para cambiar el archivo de datos de partida.
+     *
+     * @param event evento de acción que desencadena el método
+     * @throws UnsupportedLookAndFeelException si no es posible establecer el aspecto visual
+     * @throws ClassNotFoundException si no se encuentra la clase del aspecto visual
+     * @throws InstantiationException si no se puede crear una instancia del aspecto visual
+     * @throws IllegalAccessException si no se puede acceder al aspecto visual
+     */
     @FXML
     void change_filechooser(ActionEvent event) throws UnsupportedLookAndFeelException, ClassNotFoundException, InstantiationException, IllegalAccessException {
         UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
@@ -82,28 +99,38 @@ public class LoginController extends Component {
         }
     }
 
+    /**
+     * Continúa una sesión de usuario existente.
+     *
+     * @param event evento de acción que desencadena el método
+     */
     @FXML
     void continuar_una_sesion_anterior(ActionEvent event) {
         Connection cn_usuario = null;
         Conexion usuario = null;
-        try{
-            usuario= new Conexion(Shop.Path_save_usurious);
+        try {
+            usuario = new Conexion(Shop.Path_save_usurious);
             cn_usuario = usuario.conectar();
             usuario.continuar_partida(cn_usuario, input_user.getText(), input_name_partida.getText());
             cn_usuario.close();
             Shop.usuario_actual = input_user.getText();
             Shop.nombre_partida_actual = input_name_partida.getText();
-        }catch (Exception e) {
+        } catch (Exception e) {
             System.out.println(e);
         }
         nextwindow();
     }
 
+    /**
+     * Inicia una nueva sesión de usuario.
+     *
+     * @param event evento de acción que desencadena el método
+     */
     @FXML
     void iniciar_nueva_sesion(ActionEvent event) {
         Connection cn_usuario = null;
         Conexion usuario = null;
-        try{
+        try {
             usuario = new Conexion(Shop.Path_save_usurious);
             cn_usuario = usuario.conectar();
             usuario.iniciar_nueva_partida(cn_usuario, input_name_partida.getText(), input_user.getText());
@@ -115,6 +142,12 @@ public class LoginController extends Component {
         }
         nextwindow();
     }
+
+    /**
+     * Muestra la lista de usuarios en la base de datos.
+     *
+     * @param event evento de ratón que desencadena el método
+     */
     @FXML
     void Ver_usuarios_de_db(MouseEvent event) {
         Connection cn_usuario = null;
@@ -128,11 +161,17 @@ public class LoginController extends Component {
             System.out.println(e);
         }
     }
+
+    /**
+     * Muestra las partidas del usuario especificado.
+     *
+     * @param event evento de ratón que desencadena el método
+     */
     @FXML
     void ver_partidas_del_usuario(MouseEvent event) {
         Connection cn_usuario = null;
         Conexion usuario = null;
-        try{
+        try {
             usuario = new Conexion(Shop.Path_save_usurious);
             cn_usuario = usuario.conectar();
             usuario.listar_partidas_usuario(cn_usuario, input_user.getText());
@@ -141,11 +180,21 @@ public class LoginController extends Component {
             System.out.println(e);
         }
     }
+
+    /**
+     * Cierra la ventana de la aplicación.
+     *
+     * @param event evento de ratón que desencadena el método
+     */
     @FXML
     void close_window(MouseEvent event) {
         System.exit(0);
     }
-    void close_window1(){
+
+    /**
+     * Cierra la ventana y realiza acciones adicionales.
+     */
+    void close_window1() {
         path_choosefile_user.setText(Shop.Path_save_usurious);
         Connection cn_usuario = null;
         Conexion usuario = null;
@@ -157,7 +206,11 @@ public class LoginController extends Component {
             System.out.println(e);
         }
     }
-    private void nextwindow(){
+
+    /**
+     * Abre la siguiente ventana después de iniciar sesión.
+     */
+    private void nextwindow() {
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("shop-view.fxml"));
             Parent root = fxmlLoader.load();
@@ -166,9 +219,9 @@ public class LoginController extends Component {
             Stage stage = new Stage();
             stage.setScene(scene);
             Controller.Shop_start();
-            //descomentar siguientes 2 lineas si se compilara en un jar
-            //javafx.scene.image.Image icon = new Image("proyecto/tienda/imagenes/icono.jpg");
-            //stage.getIcons().add(icon);
+            // descomentar siguientes 2 líneas si se compilara en un JAR
+            // javafx.scene.image.Image icon = new Image("proyecto/tienda/imagenes/icono.jpg");
+            // stage.getIcons().add(icon);
             stage.show();
             Stage myStage = (Stage) this.path_choosefile_user.getScene().getWindow();
             myStage.close();
